@@ -22,4 +22,10 @@
 `define DOWN        1'b0
 `define UP          1'b1
 
+`define TABLE_TOP     11'd60
+`define TABLE_BOTTOM  11'd420
+`define TABLE_LEFT    11'd40
+`define TABLE_RIGHT   11'd600
+`define TABLE_WIDTH   11'd5
+
 `endif

@@ -18,6 +18,9 @@ reg            clk_2;
 wire           vblank;
 reg            blank;
 
+wire           ball_pixel_valid;
+wire           bg_pixel_valid;
+
 always @(posedge clk) begin
 	clk_2 <= ~clk_2;
 	
@@ -44,10 +47,18 @@ ball ball0
 	.pixel_valid  ( ball_pixel_valid  )
 );
 
+background background0
+(
+	.clk          ( clk              ),
+	.hcount       ( hcount           ),
+	.vcount       ( vcount           ),
+	.pixel_valid  ( bg_pixel_valid   )
+);
+
 always @(posedge clk_2) begin
 	blank <= vblank;
 
-	if (ball_pixel_valid == 1'b1) begin
+	if (ball_pixel_valid == 1'b1 || bg_pixel_valid == 1'b1) begin
 		red <= 3'h7;
 		green <= 3'h7;
 		blue <= 2'h3;

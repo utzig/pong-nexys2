@@ -4,6 +4,7 @@ module pong
 (
 	input             clk,
 	input      [3:0]  sw,
+	input      [3:0]  btn,
 	output            hs,
 	output            vs,
 	output reg [2:0]  red,
@@ -18,8 +19,10 @@ reg            clk_2;
 wire           vblank;
 reg            blank;
 
-wire           ball_pixel_valid;
-wire           bg_pixel_valid;
+wire           ball_valid;
+wire           bg_valid;
+wire           left_paddle_valid;
+wire           right_paddle_valid;
 
 always @(posedge clk) begin
 	clk_2 <= ~clk_2;
@@ -44,7 +47,7 @@ ball ball0
 	.vcount       ( vcount            ),
 	.speed        ( sw                ),
 	.vblank       ( blank             ),
-	.pixel_valid  ( ball_pixel_valid  )
+	.pixel_valid  ( ball_valid        )
 );
 
 background background0
@@ -52,13 +55,43 @@ background background0
 	.clk          ( clk              ),
 	.hcount       ( hcount           ),
 	.vcount       ( vcount           ),
-	.pixel_valid  ( bg_pixel_valid   )
+	.pixel_valid  ( bg_valid         )
+);
+
+paddle left_paddle
+(
+	.clk           ( clk                    ),
+	.hcount        ( hcount                 ),
+	.vcount        ( vcount                 ),
+	.hpos          ( `TABLE_LEFT + `MARGIN  ),
+	.up            ( btn[0]                 ),
+	.down          ( btn[1]                 ),
+	.vblank        ( blank                  ),
+	.pixel_valid   ( left_paddle_valid      )
+);
+
+paddle right_paddle
+(
+	.clk           ( clk                                    ),
+	.hcount        ( hcount                                 ),
+	.vcount        ( vcount                                 ),
+	.hpos          ( `TABLE_RIGHT - `MARGIN - `PADDLE_WIDTH ),
+	.up            ( btn[2]                                 ),
+	.down          ( btn[3]                                 ),
+	.vblank        ( blank                                  ),
+	.pixel_valid   ( right_paddle_valid                     )
 );
 
 always @(posedge clk_2) begin
 	blank <= vblank;
 
-	if (ball_pixel_valid == 1'b1 || bg_pixel_valid == 1'b1) begin
+	if (
+	      ball_valid == 1'b1 ||
+	      bg_valid == 1'b1 ||
+	      left_paddle_valid == 1'b1 ||
+	      right_paddle_valid == 1'b1
+	   )
+	begin
 		red <= 3'h7;
 		green <= 3'h7;
 		blue <= 2'h3;

@@ -28,4 +28,10 @@
 `define TABLE_RIGHT   11'd600
 `define TABLE_WIDTH   11'd5
 
+`define PADDLE_HEIGHT 11'd20
+`define PADDLE_WIDTH  11'd5
+`define PADDLE_SPEED  4'd3
+
+`define MARGIN        11'd5
+
 `endif

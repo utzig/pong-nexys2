@@ -5,7 +5,10 @@ NET "sw<1>" LOC = "H18";
 NET "sw<2>" LOC = "K18";
 NET "sw<3>" LOC = "K17";
 
-#NET "btn<0>"    LOC= "B18";
+NET "btn<0>"    LOC= "B18";
+NET "btn<1>"    LOC= "D18";
+NET "btn<2>"    LOC= "E18";
+NET "btn<3>"    LOC= "H13";
 
 NET "red<0>"   LOC = "R9";
 NET "red<1>"   LOC = "T8";

@@ -31,6 +31,7 @@ wire   [10:0]  right_paddle_pos;
 wire           left_paddle_valid;
 wire           right_paddle_valid;
 
+assign led[0] = coll_paddle;
 assign rgb[0] = color;
 assign rgb[1] = color;
 assign rgb[2] = color;
@@ -63,6 +64,7 @@ ball ball0
 	.vcount       ( vcount            ),
 	.speed        ( sw                ),
 	.vblank       ( blank             ),
+	.change_dir   ( coll_paddle       ),
 	.ball_h_dir   ( ball_dir          ),
 	.ball_h_init  ( ball_h            ),
 	.ball_v_init  ( ball_v            ),
@@ -83,8 +85,8 @@ paddle left_paddle
 	.hcount        ( hcount                  ),
 	.vcount        ( vcount                  ),
 	.hpos          ( `PADDLE_LEFT            ),
-	.up            ( btn[0]                  ),
-	.down          ( btn[1]                  ),
+	.up            ( btn[1]                  ),
+	.down          ( btn[0]                  ),
 	.vblank        ( blank                   ),
 	.paddle_v_pos  ( left_paddle_pos         ),
 	.pixel_valid   ( left_paddle_valid       )
@@ -96,8 +98,8 @@ paddle right_paddle
 	.hcount        ( hcount                  ),
 	.vcount        ( vcount                  ),
 	.hpos          ( `PADDLE_RIGHT           ),
-	.up            ( btn[2]                  ),
-	.down          ( btn[3]                  ),
+	.up            ( btn[3]                  ),
+	.down          ( btn[2]                  ),
 	.vblank        ( blank                   ),
 	.paddle_v_pos  ( right_paddle_pos        ),
 	.pixel_valid   ( right_paddle_valid      )
@@ -105,14 +107,14 @@ paddle right_paddle
 
 colldetect colldetect0
 (
-	.vblank            ( blank                   ),
+	.clk               ( clk                     ),
 	.left_paddle_pos   ( left_paddle_pos         ),
 	.right_paddle_pos  ( right_paddle_pos        ),
 	.ball_dir          ( ball_dir                ),
 	.ball_h            ( ball_h                  ),
 	.ball_v            ( ball_v                  ),
 	.ball_speed        ( sw                      ),
-	.coll_paddle       ( led[0]                  ),
+	.coll_paddle       ( coll_paddle             ),
 	.coll_wall         ( led[1]                  )
 );
 

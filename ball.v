@@ -41,7 +41,7 @@ always @(posedge vblank) begin
 		else
 			ball_h_init <= ball_h_init + ball_speed;
 	end else begin
-		if (ball_h_init < (`TABLE_LEFT - ball_speed))
+		if (ball_h_init < (`TABLE_LEFT + ball_speed))
 			ball_h_dir <= `RIGHT;
 		else
 			ball_h_init <= ball_h_init - ball_speed;
@@ -53,7 +53,7 @@ always @(posedge vblank) begin
 		else
 			ball_v_init <= ball_v_init + ball_speed;
 	end else begin
-		if (ball_v_init < (`TABLE_TOP - ball_speed))
+		if (ball_v_init < (`TABLE_TOP + ball_speed))
 			ball_v_dir <= `DOWN;
 		else
 			ball_v_init <= ball_v_init - ball_speed;

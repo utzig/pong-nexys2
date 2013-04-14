@@ -7,15 +7,14 @@ module pong
 	input      [3:0]  btn,
 	output            hs,
 	output            vs,
-	output reg [2:0]  red,
-	output reg [2:0]  green,
-	output reg [1:0]  blue
+	output     [7:0]  rgb
 );
 
 wire   [10:0]  hcount;
 wire   [10:0]  vcount;
 reg            clk_2;
 
+reg            color;
 wire           vblank;
 reg            blank;
 
@@ -23,6 +22,15 @@ wire           ball_valid;
 wire           bg_valid;
 wire           left_paddle_valid;
 wire           right_paddle_valid;
+
+assign rgb[0] = color;
+assign rgb[1] = color;
+assign rgb[2] = color;
+assign rgb[3] = color;
+assign rgb[4] = color;
+assign rgb[5] = color;
+assign rgb[6] = color;
+assign rgb[7] = color;
 
 always @(posedge clk) begin
 	clk_2 <= ~clk_2;
@@ -92,13 +100,9 @@ always @(posedge clk_2) begin
 	      right_paddle_valid == 1'b1
 	   )
 	begin
-		red <= 3'h7;
-		green <= 3'h7;
-		blue <= 2'h3;
+		color = 1'b1;
 	end else begin
-		red <= 3'h0;
-		green <= 3'h0;
-		blue <= 2'h0;
+		color = 1'b0;
 	end
 
 end

@@ -10,14 +10,14 @@ NET "btn<1>"    LOC= "D18";
 NET "btn<2>"    LOC= "E18";
 NET "btn<3>"    LOC= "H13";
 
-NET "red<0>"   LOC = "R9";
-NET "red<1>"   LOC = "T8";
-NET "red<2>"   LOC = "R8";
-NET "green<0>" LOC = "N8";
-NET "green<1>" LOC = "P8";
-NET "green<2>" LOC = "P6";
-NET "blue<0>"  LOC = "U5";
-NET "blue<1>"  LOC = "U4";
+NET "rgb<7>"   LOC = "R9";
+NET "rgb<6>"   LOC = "T8";
+NET "rgb<5>"   LOC = "R8";
+NET "rgb<4>"   LOC = "N8";
+NET "rgb<3>"   LOC = "P8";
+NET "rgb<2>"   LOC = "P6";
+NET "rgb<1>"  LOC = "U5";
+NET "rgb<0>"  LOC = "U4";
 
 NET "hs"     LOC= "T4";
 NET "vs"     LOC= "U3";

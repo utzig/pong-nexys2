@@ -33,14 +33,14 @@ always @(posedge vblank) begin
 	if
 	(
 	     up == 1'b1 &&
-	     paddle_v_pos >= (`TABLE_TOP + `MARGIN + `PADDLE_SPEED)
+	     paddle_v_pos >= (`TABLE_TOP + `VMARGIN + `PADDLE_SPEED)
 	)
 		paddle_v_pos <= paddle_v_pos - `PADDLE_SPEED;
 
 	if
 	(
 	     down == 1'b1 &&
-	     (paddle_v_pos + `PADDLE_HEIGHT) <= (`TABLE_BOTTOM - `MARGIN - `PADDLE_SPEED)
+	     (paddle_v_pos + `PADDLE_HEIGHT) <= (`TABLE_BOTTOM - `VMARGIN - `PADDLE_SPEED)
 	)
 		paddle_v_pos <= paddle_v_pos + `PADDLE_SPEED;
 end

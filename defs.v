@@ -24,14 +24,15 @@
 
 `define TABLE_TOP     11'd60
 `define TABLE_BOTTOM  11'd420
-`define TABLE_LEFT    11'd40
-`define TABLE_RIGHT   11'd600
+`define TABLE_LEFT    11'd30
+`define TABLE_RIGHT   11'd610
 `define TABLE_WIDTH   11'd5
 
 `define PADDLE_HEIGHT 11'd20
 `define PADDLE_WIDTH  11'd5
-`define PADDLE_SPEED  4'd3
+`define PADDLE_SPEED  4'd5
 
-`define MARGIN        11'd5
+`define HMARGIN        11'd10
+`define VMARGIN        11'd5
 
 `endif

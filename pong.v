@@ -60,26 +60,26 @@ background background0
 
 paddle left_paddle
 (
-	.clk           ( clk                    ),
-	.hcount        ( hcount                 ),
-	.vcount        ( vcount                 ),
-	.hpos          ( `TABLE_LEFT + `MARGIN  ),
-	.up            ( btn[0]                 ),
-	.down          ( btn[1]                 ),
-	.vblank        ( blank                  ),
-	.pixel_valid   ( left_paddle_valid      )
+	.clk           ( clk                     ),
+	.hcount        ( hcount                  ),
+	.vcount        ( vcount                  ),
+	.hpos          ( `TABLE_LEFT + `HMARGIN  ),
+	.up            ( btn[0]                  ),
+	.down          ( btn[1]                  ),
+	.vblank        ( blank                   ),
+	.pixel_valid   ( left_paddle_valid       )
 );
 
 paddle right_paddle
 (
-	.clk           ( clk                                    ),
-	.hcount        ( hcount                                 ),
-	.vcount        ( vcount                                 ),
-	.hpos          ( `TABLE_RIGHT - `MARGIN - `PADDLE_WIDTH ),
-	.up            ( btn[2]                                 ),
-	.down          ( btn[3]                                 ),
-	.vblank        ( blank                                  ),
-	.pixel_valid   ( right_paddle_valid                     )
+	.clk           ( clk                                      ),
+	.hcount        ( hcount                                   ),
+	.vcount        ( vcount                                   ),
+	.hpos          ( `TABLE_RIGHT - `HMARGIN - `PADDLE_WIDTH  ),
+	.up            ( btn[2]                                   ),
+	.down          ( btn[3]                                   ),
+	.vblank        ( blank                                    ),
+	.pixel_valid   ( right_paddle_valid                       )
 );
 
 always @(posedge clk_2) begin

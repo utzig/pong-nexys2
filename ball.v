@@ -7,21 +7,20 @@ module ball
 	input       [10:0]  vcount,
 	input       [3:0]   speed,
 	input               vblank,
+	output reg          ball_h_dir,
+	output reg  [10:0]  ball_h_init,
+	output reg  [10:0]  ball_v_init,
 	output reg          pixel_valid
 );
 
 reg    [4:0]   ball_speed;
-reg            ball_h_dir;
 reg            ball_v_dir;
-
-reg    [10:0]  ball_h_init;
-reg    [10:0]  ball_v_init;
 
 initial begin
 	ball_h_init = 10'd310;
 	ball_v_init = 10'd230;
-	ball_h_dir = 1'b0;
-	ball_v_dir = 1'b0;
+	ball_h_dir = `RIGHT;
+	ball_v_dir = `DOWN;
 end
 
 always @(posedge clk) begin

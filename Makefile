@@ -1,4 +1,11 @@
-SRC = vga_controller.v ball.v background.v paddle.v defs.v pong.v
+SRC = \
+	vga_controller.v \
+	ball.v \
+	background.v \
+	paddle.v \
+	colldetect.v \
+	defs.v \
+	pong.v
 
 CLEAN = pong.bgn pong.drc pong.mrp pong.ngd pong.pcf \
 	pong.bld pong.lso stopwatch.lso pong.ncd pong.ngm pong.srp \

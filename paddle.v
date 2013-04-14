@@ -7,10 +7,9 @@ module paddle
 	input               up,
 	input               down,
 	input               vblank,
+	output reg  [10:0]  paddle_v_pos,
 	output reg          pixel_valid
 );
-
-reg    [10:0]  paddle_v_pos;
 
 initial begin
 	paddle_v_pos = 11'd230; //FIXME: 240 - `PADDLE_HEIGHT / 2;

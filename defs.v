@@ -35,4 +35,7 @@
 `define HMARGIN        11'd10
 `define VMARGIN        11'd5
 
+`define PADDLE_LEFT    (`TABLE_LEFT + `HMARGIN)
+`define PADDLE_RIGHT   (`TABLE_RIGHT - `HMARGIN - `PADDLE_WIDTH)
+
 `endif

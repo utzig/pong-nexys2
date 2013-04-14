@@ -82,7 +82,7 @@ paddle left_paddle
 	.clk           ( clk                     ),
 	.hcount        ( hcount                  ),
 	.vcount        ( vcount                  ),
-	.hpos          ( `TABLE_LEFT + `HMARGIN  ),
+	.hpos          ( `PADDLE_LEFT            ),
 	.up            ( btn[0]                  ),
 	.down          ( btn[1]                  ),
 	.vblank        ( blank                   ),
@@ -92,15 +92,15 @@ paddle left_paddle
 
 paddle right_paddle
 (
-	.clk           ( clk                                      ),
-	.hcount        ( hcount                                   ),
-	.vcount        ( vcount                                   ),
-	.hpos          ( `TABLE_RIGHT - `HMARGIN - `PADDLE_WIDTH  ),
-	.up            ( btn[2]                                   ),
-	.down          ( btn[3]                                   ),
-	.vblank        ( blank                                    ),
-	.paddle_v_pos  ( right_paddle_pos                         ),
-	.pixel_valid   ( right_paddle_valid                       )
+	.clk           ( clk                     ),
+	.hcount        ( hcount                  ),
+	.vcount        ( vcount                  ),
+	.hpos          ( `PADDLE_RIGHT           ),
+	.up            ( btn[2]                  ),
+	.down          ( btn[3]                  ),
+	.vblank        ( blank                   ),
+	.paddle_v_pos  ( right_paddle_pos        ),
+	.pixel_valid   ( right_paddle_valid      )
 );
 
 colldetect colldetect0

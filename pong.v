@@ -8,7 +8,9 @@ module pong
 	output     [2:0]  led,
 	output            hs,
 	output            vs,
-	output     [7:0]  rgb
+	output     [7:0]  rgb,
+	output     [6:0]  seg,
+	output     [3:0]  an
 );
 
 wire   [10:0]  hcount;
@@ -43,7 +45,6 @@ assign rgb[7] = color;
 
 always @(posedge clk) begin
 	clk_2 <= ~clk_2;
-	
 end
 
 vga_controller vga0
@@ -59,7 +60,7 @@ vga_controller vga0
 
 ball ball0
 (
-	.clk          ( clk_2             ),
+	.clk          ( clk               ),
 	.hcount       ( hcount            ),
 	.vcount       ( vcount            ),
 	.speed        ( sw                ),
@@ -114,6 +115,8 @@ colldetect colldetect0
 	.ball_h            ( ball_h                  ),
 	.ball_v            ( ball_v                  ),
 	.ball_speed        ( sw                      ),
+	.seg               ( seg                     ),
+	.an                ( an                      ),
 	.coll_paddle       ( coll_paddle             ),
 	.coll_wall         ( led[1]                  )
 );
